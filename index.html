@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Registro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="website icon" type="png" href="icono.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Formulario de inicio de sesión -->
+        <form id="login-form" class="form" action="" style="display: block;">
+            <h2>Iniciar Sesión</h2>
+            <label for="login-usuario">Usuario</label>
+            <input id="login-usuario" type="text" placeholder="Usuario">
+            <label for="login-contrasena">Contraseña</label>
+            <input id="login-contrasena" type="password" placeholder="Contraseña">
+            <div class="buttons">
+                <button type="button" onclick="iniciarSesion()">Iniciar Sesión</button>
+                <button type="button" onclick="toggleForms()">¿No tienes cuenta? Regístrate</button>
+            </div>
+        </form>
+
+        <!-- Formulario de registro -->
+        <form id="register-form" class="form" action="" style="display: none;">
+            <h2>Registrarse</h2>
+            <label for="register-nombre">Nombre</label>
+            <input id="register-nombre" type="text" placeholder="Nombre completo">
+            <label for="register-correo">Correo</label>
+            <input id="register-correo" type="email" placeholder="Correo electrónico">
+            <label for="register-contrasena">Contraseña</label>
+            <input id="register-contrasena" type="password" placeholder="Contraseña">
+            <label for="register-usuario">Usuario</label>
+            <input id="register-usuario" type="text" placeholder="Usuario">
+            <div class="buttons">
+                <button type="button" onclick="registrarUsuario()">Registrarse</button>
+                <button type="button" onclick="toggleForms()">¿Ya tienes cuenta? Inicia sesión</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Función para simular el inicio de sesión exitoso
+        function iniciarSesion() {
+            const usuario = document.getElementById('login-usuario').value;
+            const contrasena = document.getElementById('login-contrasena').value;
+
+            if (usuario === 'admin' && contrasena === 'admin') {
+                Swal.fire('Inicio de sesión exitoso', '', 'success').then(() => {
+                    window.location.href = 'panel.html'; // Redirige al panel de control
+                });
+            } else {
+                Swal.fire('Error', 'Usuario o contraseña incorrectos', 'error');
+            }
+        }
+
+        // Función para simular el registro de usuario
+        function registrarUsuario() {
+            const nombre = document.getElementById('register-nombre').value;
+            const correo = document.getElementById('register-correo').value;
+            const contrasena = document.getElementById('register-contrasena').value;
+            const usuario = document.getElementById('register-usuario').value;
+
+            // Simulamos que el registro fue exitoso
+            Swal.fire('Registro exitoso', '¡Bienvenido a la plataforma!', 'success').then(() => {
+                toggleForms(); // Cambia a formulario de inicio de sesión
+            });
+        }
+
+        // Función para alternar entre el formulario de inicio de sesión y el de registro
+        function toggleForms() {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

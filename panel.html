@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Recetas</title>
+    
+    <link rel="stylesheet" href="panel.css">
+    <link rel="website icon" type="png" href="icono.png">
+
+    <!-- Incluir SweetAlert2 desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Panel de Control</h2>
+            <ul class="menu">
+                <li><a id="Vegetarianas" href="#">Recetas Vegetarianas</a></li>
+                <li><a id="No" href="#">Recetas No Vegetarianas</a></li>
+                <!-- Botón de Cerrar Sesión que redirige al login -->
+                <li><a href="login.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <section id="recetas-vegetarianas" style="display:none;">
+                <h1>Recetas Vegetarianas</h1>
+            </section>
+
+            <div class="card">
+                <h3>Ensalada de Quinoa</h3>
+                <p>Descripción: Ensalada fresca con quinoa y vegetales.</p>
+                <p>Dificultad: <span class="highlight">Fácil</span></p>
+                <p>
+                  Tiempo de preparación: <span class="highlight">20 minutos</span>
+                </p>
+                <p>Tipo: <span class="highlight">Ensalada</span></p>
+                <p>Ingredientes:</p>
+                <ul>
+                  <li>quinoa</li>
+                  <li>tomate</li>
+                  <li>pepino</li>
+                  <li>pimiento</li>
+                  <li>limón</li>
+                  <li>aceite de oliva</li>
+                </ul>
+                <p>Pasos:</p>
+                <ol>
+                  <li>Lava la quinoa</li>
+                  <li>Cocínala</li>
+                  <li>Mezcla con vegetales y aderezo</li>
+                </ol>
+            </div>
+
+            <section id="recetas-no-vegetarianas" style="display:none;">
+                <h1>Recetas No Vegetarianas</h1>
+            </section>
+
+            <button id="Vegetarianas">Mostrar Recetas Vegetarianas</button>
+            <button id="NoVegetarianas">Mostrar Recetas No Vegetarianas</button>
+            <!-- Aquí se mantiene el enlace de cerrar sesión -->
+            <button id="Cerrar-Sesion"><a href="login.html">Cerrar Sesión</a></button>
+        </main>
+    </div>
+
+    <script type="module" src="database.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
